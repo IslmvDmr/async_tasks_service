@@ -14,3 +14,10 @@ class TaskStatus(StrEnum):
     COMPLETED = "COMPLETED"
     FAILED = "FAILED"
     CANCELLED = "CANCELLED"
+
+
+TASK_PRIORITY_MAP = {
+    TaskPriority.LOW: 1,
+    TaskPriority.MEDIUM: 5,
+    TaskPriority.HIGH: 10,
+}
