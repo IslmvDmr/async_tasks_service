@@ -70,15 +70,15 @@ async def process_task(task_id: str) -> None:
 
             db.refresh(task)
             if task.status == TaskStatus.CANCELLED:
-                logger.info("Task %s cancelled during execution", task_id)
+                logger.info(f"Задача {task.id} отмена до выполнения ")
                 return
 
             if result == "completed":
                 task.status = TaskStatus.COMPLETED
-                task.result = f"Task {task.id} processed successfully"
+                task.result = f"Задача {task.id} выполнена!"
             else:
                 task.status = TaskStatus.FAILED
-                task.error = f"Process exited with code {process.exitcode}"
+                task.error = f"Задача {task.id} завершилась с ошибкой - {process.exitcode}"
 
             task.finished_at = datetime.now(timezone.utc)
             db.add(task)
