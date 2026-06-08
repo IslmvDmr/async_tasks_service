@@ -44,7 +44,8 @@
 - `TASK_QUEUE_NAME` (str, default: `"tasks"`) — имя очереди задач в брокере
 - `TASK_QUEUE_MAX_PRIORITY` (int, default: `10`) — максимальный приоритет задачи (от `0` до указанного значения)
 - `MAX_CONCURRENT_PROCESSES` (int, default: `1`) — максимальное количество одновременно выполняемых процессов
-- `TIME_TO_WAIT_TASK` (int, default: `10`) — время ожидания задачи (в секундах)
+- `TIME_TO_WAIT_TASK` (int, default: `1200`) — время ожидания задачи (в секундах), если не уложились, то убиваем процесс.
+- `TIME_TO_EXECUTE_TASK` (int, default: `3`) — время проверки статуса задачи (в секундах)
 
 ### Пример файла `.env`
 

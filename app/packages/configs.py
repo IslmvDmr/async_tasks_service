@@ -12,6 +12,7 @@ class Settings(BaseSettings):
     TASK_QUEUE_MAX_PRIORITY: int = 10
     MAX_CONCURRENT_PROCESSES: int = 1
     TIME_TO_WAIT_TASK: int = 60 * 20
+    TIME_TO_EXECUTE_TASK: int = 3
 
 
 settings = Settings()  # type: ignore

@@ -16,13 +16,13 @@ from app.services.worker.process_registry import (
     register_process,
     unregister_process,
 )
-
+from app.packages.configs import settings
 logger = get_logger(__name__)
 
 
 async def wait_process_with_cancel(task_uuid: UUID, process: mp.Process) -> str:
     while process.is_alive():
-        await asyncio.sleep(1)
+        await asyncio.sleep(settings.TIME_TO_EXECUTE_TASK)
 
         db: Session = SessionLocal()
         try:
